@@ -4,9 +4,14 @@ on:
     branches:
       - main
       - dev
+env:
+  MONGODB_DB_NAME: gha-demo
 jobs:
   test:
-    environment: testing
+    env:
+      MONGODB_CLUSTER_ADDRESS: cluster-example
+      MONGODB_USERNAME: user
+      MONGODB_PASSWORD: pass
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
